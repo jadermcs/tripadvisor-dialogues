@@ -31,7 +31,7 @@ class ThreadSpider(scrapy.Spider):
 
     def parse(self, response):
         page = response.url.split("/")[-1]
-        filename = f'page-{page}.jl'
+        filename = f'data/page-{page}.jl'
         fileout = open(filename, 'w')
         for thread in response.xpath('//*[@id="SHOW_FORUMS_TABLE"]/tr'):
             item = thread.css('td b a')
