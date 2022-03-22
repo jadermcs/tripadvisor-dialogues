@@ -52,5 +52,5 @@ class ThreadSpider(scrapy.Spider):
         fileout.close()
         next_page = response.css('a.guiArw.sprite-pageNext::attr(href)').get()
         if next_page is not None:
-            self.log(f'Crawling page {next_page}')
+            self.log('Crawling page {}'.format(next_page))
             yield response.follow(next_page, callback=self.parse)
