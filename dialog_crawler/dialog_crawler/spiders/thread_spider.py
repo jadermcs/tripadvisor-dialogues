@@ -12,17 +12,18 @@ class ThreadSpider(scrapy.Spider):
     def thread_parse(self, response):
         replies = []
         for index, post in enumerate(response.css('div.postBody')):
-            text = ""
+            text = []
             entities = []
             for paragraph in post.css('p'):
-                if (p := paragraph.css('::text').getall()) is not None:
-                    text += ' '.join(p)+' '
+                if (sentence := paragraph.css('::text').getall()) is not None:
+                    text += [s for s in sentence if not s.startswith("(ta")]
                     entities += paragraph.css('a.internal::text').getall()
             if len(text) > 1000:
                 if index == 0: return
                 continue
-            replies.append({'utterance': text, 'entities': entities})
+            replies.append({'utterance': ' '.join(text), 'entities': entities})
         yield {
+            'url': response.url,
             'domain': response.url.split('-')[-1].rstrip('.html'),
             'intent': response.css('h1#HEADING::text').get().strip(),
             'utterances': replies
