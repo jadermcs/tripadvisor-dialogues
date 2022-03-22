@@ -15,7 +15,8 @@ class ThreadSpider(scrapy.Spider):
             text = []
             entities = []
             for paragraph in post.css('p'):
-                if (sentence := paragraph.css('::text').getall()) is not None:
+                sentence = paragraph.css('::text').getall()
+                if sentence is not None:
                     text += [s for s in sentence if not s.startswith("(ta")]
                     entities += paragraph.css('a.internal::text').getall()
             if len(text) > 1000:
