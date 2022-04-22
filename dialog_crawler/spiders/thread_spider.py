@@ -6,7 +6,14 @@ class ThreadSpider(scrapy.Spider):
     name = "thread"
     criteria = 20
     start_urls = [
-        'https://www.tripadvisor.com/ShowForum-g186338-i17-London_England.html'
+        'https://www.tripadvisor.com/ShowForum-g187147-i14-Paris_Ile_de_France.html',
+        'https://www.tripadvisor.com/ShowForum-g187791-i22-Rome_Lazio.html',
+        'https://www.tripadvisor.com/ShowForum-g293974-i368-Istanbul.html',
+        'https://www.tripadvisor.com/ShowForum-g187497-i44-Barcelona_Catalonia.html',
+        'https://www.tripadvisor.com/ShowForum-g187514-i126-Madrid.html',
+        'https://www.tripadvisor.com/ShowForum-g188590-i60-Amsterdam_North_Holland_Province.html',
+        'https://www.tripadvisor.com/ShowForum-g189158-i203-Lisbon_Lisbon_District_Central_Portugal.html',
+        #'https://www.tripadvisor.com/ShowForum-g186338-i17-London_England.html',
     ]
 
     def thread_parse(self, response):

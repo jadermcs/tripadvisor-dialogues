@@ -1,1 +1,9 @@
 scrapy>=2.6.1
+jupyter
+notebook
+spacy
+spacy-transformers
+datasets
+matplotlib
+seaborn
+sklearn
