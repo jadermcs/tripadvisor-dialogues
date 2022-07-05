@@ -32,7 +32,7 @@ class ThreadSpider(scrapy.Spider):
             replies.append({'utterance': ' '.join(text), 'entities': entities})
         yield {
             'url': response.url,
-            'domain': response.url.split('-')[-1].rstrip('.html'),
+            'domain': response.url.split('-')[-1].rstrip('.html').replace("_"," "),
             'intent': response.css('h1#HEADING::text').get().strip(),
             'utterances': replies
         }
