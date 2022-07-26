@@ -4,7 +4,7 @@ import scrapy
 
 class ThreadSpider(scrapy.Spider):
     name = "thread"
-    criteria = 20
+    criteria = 5
     start_urls = [
         'https://www.tripadvisor.com/ShowForum-g187147-i14-Paris_Ile_de_France.html',
         'https://www.tripadvisor.com/ShowForum-g187791-i22-Rome_Lazio.html',

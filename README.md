@@ -4,5 +4,6 @@ Extract dialogues from tripadvisor forums and save in a dialogue preserving stru
 
 To run:
 ```sh
-scrapy crawl thread
+pip install -r requirements.txt
+scrapy crawl thread -o dialogues.jl
 ```
